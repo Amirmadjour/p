@@ -1,9 +1,10 @@
 "use client";
 
 import { useRef } from "react";
+import config from "../../next.config.js";
 
 // Base path for production deployment
-const basePath = process.env.NODE_ENV === "production" ? "/p" : "";
+const basePath = config.basePath;
 
 interface ScrollyCanvasProps {
   className?: string;

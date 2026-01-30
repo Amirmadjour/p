@@ -3,9 +3,10 @@
 import { useState } from "react";
 import { motion, AnimatePresence, Variants } from "framer-motion";
 import Image from "next/image";
+import config from "../../next.config.js";
 
 // Base path for production deployment
-const basePath = process.env.NODE_ENV === "production" ? "/p" : "";
+const basePath = config.basePath;
 
 interface Project {
   id: number;
