@@ -205,7 +205,7 @@ function ImagePreviewModal({ project, onClose }: ImagePreviewModalProps) {
           <>
             <button
               onClick={prevImage}
-              className="absolute left-4 top-1/2 z-10 -translate-y-1/2 rounded-full bg-white/10 p-4 text-white backdrop-blur-sm transition-all hover:bg-white/20"
+              className="absolute left-4 top-1/2 z-10 -translate-y-1/2 rounded-full bg-black/50 p-4 text-white backdrop-blur-sm transition-all hover:bg-black/70 md:bg-white/10 md:hover:bg-white/20"
             >
               <svg
                 className="h-8 w-8"
@@ -223,7 +223,7 @@ function ImagePreviewModal({ project, onClose }: ImagePreviewModalProps) {
             </button>
             <button
               onClick={nextImage}
-              className="absolute right-4 top-1/2 z-10 -translate-y-1/2 rounded-full bg-white/10 p-4 text-white backdrop-blur-sm transition-all hover:bg-white/20"
+              className="absolute right-4 top-1/2 z-10 -translate-y-1/2 rounded-full bg-black/50 p-4 text-white backdrop-blur-sm transition-all hover:bg-black/70 md:bg-white/10 md:hover:bg-white/20"
             >
               <svg
                 className="h-8 w-8"
@@ -245,7 +245,7 @@ function ImagePreviewModal({ project, onClose }: ImagePreviewModalProps) {
         {/* Close button - top right corner */}
         <button
           onClick={onClose}
-          className="absolute right-4 top-4 z-10 rounded-full bg-white/10 p-3 text-white backdrop-blur-sm transition-all hover:bg-white/20"
+          className="absolute right-4 top-4 z-10 rounded-full bg-black/50 p-3 text-white backdrop-blur-sm transition-all hover:bg-black/70 md:bg-white/10 md:hover:bg-white/20"
         >
           <svg
             className="h-6 w-6"
@@ -318,6 +318,7 @@ export default function Projects() {
                     fill
                     className="object-cover"
                     sizes="(max-width: 768px) 100vw, 50vw"
+                    loading="lazy"
                   />
                   <div className="absolute inset-0 bg-gradient-to-t from-black/30 to-transparent opacity-0 transition-opacity group-hover:opacity-50" />
                   
