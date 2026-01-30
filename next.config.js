@@ -4,6 +4,7 @@ const isProd = process.env.NODE_ENV === "production";
 const nextConfig = {
   /* config options here */
   basePath: isProd ? "/p" : "",
+  assetPrefix: isProd ? "/p" : "",
 };
 
 module.exports = nextConfig;
