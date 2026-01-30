@@ -5,6 +5,10 @@ const nextConfig = {
   /* config options here */
   basePath: isProd ? "/p" : "",
   assetPrefix: isProd ? "/p" : "",
+  output: "export",
+  images: {
+    unoptimized: true,
+  },
 };
 
 module.exports = nextConfig;
