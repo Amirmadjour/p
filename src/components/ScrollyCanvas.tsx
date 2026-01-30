@@ -19,14 +19,18 @@ export default function ScrollyCanvas({ className = "" }: ScrollyCanvasProps) {
       className={`relative h-[500vh] ${className}`}
     >
       {/* Sticky image container */}
-      <div className="sticky top-0 h-screen w-full overflow-hidden">
+      <div className="sticky top-0 h-screen w-full overflow-hidden bg-black">
+        {/* Mobile Image */}
+        <img
+          src={`${basePath}/hero_image_mobile.png`}
+          alt="Hero background mobile"
+          className="block h-full w-full object-cover md:hidden"
+        />
+        {/* Desktop Image */}
         <img
           src={`${basePath}/hero_image.jpeg`}
           alt="Hero background"
-          className="h-full w-full object-cover"
-          style={{
-            display: "block",
-          }}
+          className="hidden h-full w-full object-cover md:block"
         />
       </div>
     </div>
