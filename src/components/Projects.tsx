@@ -4,6 +4,9 @@ import { useState } from "react";
 import { motion, AnimatePresence, Variants } from "framer-motion";
 import Image from "next/image";
 
+// Base path for production deployment
+const basePath = process.env.NODE_ENV === "production" ? "/p" : "";
+
 interface Project {
   id: number;
   title: string;
@@ -26,16 +29,16 @@ const projects: Project[] = [
     gradient: "from-orange-500/20 to-red-500/20",
     folder: "Rabit",
     images: [
-      "/projects/Rabit/image1.png",
-      "/projects/Rabit/image2.png",
-      "/projects/Rabit/image3.png",
-      "/projects/Rabit/image4.png",
-      "/projects/Rabit/image5.png",
-      "/projects/Rabit/image6.png",
-      "/projects/Rabit/image7.png",
-      "/projects/Rabit/image8.png",
-      "/projects/Rabit/image9.png",
-      "/projects/Rabit/image10.png",
+      `${basePath}/projects/Rabit/image1.png`,
+      `${basePath}/projects/Rabit/image2.png`,
+      `${basePath}/projects/Rabit/image3.png`,
+      `${basePath}/projects/Rabit/image4.png`,
+      `${basePath}/projects/Rabit/image5.png`,
+      `${basePath}/projects/Rabit/image6.png`,
+      `${basePath}/projects/Rabit/image7.png`,
+      `${basePath}/projects/Rabit/image8.png`,
+      `${basePath}/projects/Rabit/image9.png`,
+      `${basePath}/projects/Rabit/image10.png`,
     ],
   },
   {
@@ -48,14 +51,14 @@ const projects: Project[] = [
     gradient: "from-teal-500/20 to-cyan-500/20",
     folder: "Rabitpay",
     images: [
-      "/projects/Rabitpay/image0.png",
-      "/projects/Rabitpay/image1.png",
-      "/projects/Rabitpay/image2.png",
-      "/projects/Rabitpay/image3.png",
-      "/projects/Rabitpay/image4.png",
-      "/projects/Rabitpay/image5.png",
-      "/projects/Rabitpay/image6.png",
-      "/projects/Rabitpay/image7.png",
+      `${basePath}/projects/Rabitpay/image0.png`,
+      `${basePath}/projects/Rabitpay/image1.png`,
+      `${basePath}/projects/Rabitpay/image2.png`,
+      `${basePath}/projects/Rabitpay/image3.png`,
+      `${basePath}/projects/Rabitpay/image4.png`,
+      `${basePath}/projects/Rabitpay/image5.png`,
+      `${basePath}/projects/Rabitpay/image6.png`,
+      `${basePath}/projects/Rabitpay/image7.png`,
     ],
   },
   {
@@ -68,9 +71,9 @@ const projects: Project[] = [
     gradient: "from-purple-500/20 to-pink-500/20",
     folder: "haris",
     images: [
-      "/projects/haris/Screenshot_2025-04-22_16_18_53.png",
-      "/projects/haris/Screenshot_2025-05-05_18_27_20.png",
-      "/projects/haris/Screenshot_2025-05-05_23_32_07.png",
+      `${basePath}/projects/haris/Screenshot_2025-04-22_16_18_53.png`,
+      `${basePath}/projects/haris/Screenshot_2025-05-05_18_27_20.png`,
+      `${basePath}/projects/haris/Screenshot_2025-05-05_23_32_07.png`,
     ],
   },
   {
@@ -83,9 +86,9 @@ const projects: Project[] = [
     gradient: "from-blue-500/20 to-indigo-500/20",
     folder: "livri",
     images: [
-      "/projects/livri/image1.png",
-      "/projects/livri/image2.jpg",
-      "/projects/livri/image3.jpg",
+      `${basePath}/projects/livri/image1.png`,
+      `${basePath}/projects/livri/image2.jpg`,
+      `${basePath}/projects/livri/image3.jpg`,
     ],
   },
 ];

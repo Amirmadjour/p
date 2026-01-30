@@ -2,6 +2,9 @@
 
 import { useRef } from "react";
 
+// Base path for production deployment
+const basePath = process.env.NODE_ENV === "production" ? "/p" : "";
+
 interface ScrollyCanvasProps {
   className?: string;
 }
@@ -17,7 +20,7 @@ export default function ScrollyCanvas({ className = "" }: ScrollyCanvasProps) {
       {/* Sticky image container */}
       <div className="sticky top-0 h-screen w-full overflow-hidden">
         <img
-          src="/hero_image.jpeg"
+          src={`${basePath}/hero_image.jpeg`}
           alt="Hero background"
           className="h-full w-full object-cover"
           style={{
