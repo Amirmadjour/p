@@ -162,138 +162,101 @@ function ImagePreviewModal({ project, onClose }: ImagePreviewModalProps) {
       initial="hidden"
       animate="visible"
       exit="exit"
-      className="fixed inset-0 z-50 flex items-center justify-center bg-black/90 backdrop-blur-md"
+      className="fixed inset-0 z-50 flex items-center justify-center bg-black/95"
       onClick={onClose}
       onKeyDown={handleKeyDown}
       tabIndex={0}
     >
+      {/* Image container - full screen */}
       <motion.div
         variants={modalVariants}
         initial="hidden"
         animate="visible"
         exit="exit"
-        className="relative mx-4 flex max-h-[90vh] w-full max-w-5xl flex-col rounded-2xl bg-[#1a1a1a]/80 p-6 shadow-2xl backdrop-blur-xl"
+        className="relative flex h-full w-full items-center justify-center p-4"
         onClick={(e) => e.stopPropagation()}
       >
-        {/* Header */}
-        <div className="mb-4 flex items-center justify-between">
-          <div>
-            <h3 className="text-2xl font-bold text-white">{project.title}</h3>
-            <p className="text-sm text-white/50">{project.category}</p>
-          </div>
-          <button
-            onClick={onClose}
-            className="rounded-full p-2 text-white/60 transition-colors hover:bg-white/10 hover:text-white"
+        <AnimatePresence mode="wait">
+          <motion.div
+            key={currentIndex}
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            exit={{ opacity: 0 }}
+            transition={{ duration: 0.2 }}
+            className="relative h-full w-full"
           >
-            <svg
-              className="h-6 w-6"
-              fill="none"
-              stroke="currentColor"
-              viewBox="0 0 24 24"
-            >
-              <path
-                strokeLinecap="round"
-                strokeLinejoin="round"
-                strokeWidth={2}
-                d="M6 18L18 6M6 6l12 12"
-              />
-            </svg>
-          </button>
-        </div>
+            <Image
+              src={project.images[currentIndex]}
+              alt={`${project.title} screenshot ${currentIndex + 1}`}
+              fill
+              className="object-contain"
+              sizes="100vw"
+              priority
+            />
+          </motion.div>
+        </AnimatePresence>
 
-        {/* Image container */}
-        <div className="relative flex-1 overflow-hidden rounded-xl bg-black/30">
-          <AnimatePresence mode="wait">
-            <motion.div
-              key={currentIndex}
-              initial={{ opacity: 0, x: 50 }}
-              animate={{ opacity: 1, x: 0 }}
-              exit={{ opacity: 0, x: -50 }}
-              transition={{ duration: 0.3 }}
-              className="relative aspect-video w-full"
-            >
-              <Image
-                src={project.images[currentIndex]}
-                alt={`${project.title} screenshot ${currentIndex + 1}`}
-                fill
-                className="object-contain"
-                sizes="(max-width: 1280px) 100vw, 1280px"
-              />
-            </motion.div>
-          </AnimatePresence>
-
-          {/* Navigation arrows */}
-          {project.images.length > 1 && (
-            <>
-              <button
-                onClick={prevImage}
-                className="absolute left-4 top-1/2 -translate-y-1/2 rounded-full bg-black/50 p-3 text-white/80 backdrop-blur-sm transition-all hover:bg-black/70 hover:text-white"
-              >
-                <svg
-                  className="h-6 w-6"
-                  fill="none"
-                  stroke="currentColor"
-                  viewBox="0 0 24 24"
-                >
-                  <path
-                    strokeLinecap="round"
-                    strokeLinejoin="round"
-                    strokeWidth={2}
-                    d="M15 19l-7-7 7-7"
-                  />
-                </svg>
-              </button>
-              <button
-                onClick={nextImage}
-                className="absolute right-4 top-1/2 -translate-y-1/2 rounded-full bg-black/50 p-3 text-white/80 backdrop-blur-sm transition-all hover:bg-black/70 hover:text-white"
-              >
-                <svg
-                  className="h-6 w-6"
-                  fill="none"
-                  stroke="currentColor"
-                  viewBox="0 0 24 24"
-                >
-                  <path
-                    strokeLinecap="round"
-                    strokeLinejoin="round"
-                    strokeWidth={2}
-                    d="M9 5l7 7-7 7"
-                  />
-                </svg>
-              </button>
-            </>
-          )}
-        </div>
-
-        {/* Thumbnail strip */}
+        {/* Navigation arrows */}
         {project.images.length > 1 && (
-          <div className="mt-4 flex gap-2 overflow-x-auto pb-2">
-            {project.images.map((image, index) => (
-              <button
-                key={image}
-                onClick={() => setCurrentIndex(index)}
-                className={`relative h-16 w-24 flex-shrink-0 overflow-hidden rounded-lg border-2 transition-all ${
-                  index === currentIndex
-                    ? "border-white/60 ring-2 ring-white/20"
-                    : "border-transparent opacity-50 hover:opacity-100"
-                }`}
+          <>
+            <button
+              onClick={prevImage}
+              className="absolute left-4 top-1/2 z-10 -translate-y-1/2 rounded-full bg-white/10 p-4 text-white backdrop-blur-sm transition-all hover:bg-white/20"
+            >
+              <svg
+                className="h-8 w-8"
+                fill="none"
+                stroke="currentColor"
+                viewBox="0 0 24 24"
               >
-                <Image
-                  src={image}
-                  alt={`Thumbnail ${index + 1}`}
-                  fill
-                  className="object-cover"
-                  sizes="96px"
+                <path
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                  strokeWidth={2}
+                  d="M15 19l-7-7 7-7"
                 />
-              </button>
-            ))}
-          </div>
+              </svg>
+            </button>
+            <button
+              onClick={nextImage}
+              className="absolute right-4 top-1/2 z-10 -translate-y-1/2 rounded-full bg-white/10 p-4 text-white backdrop-blur-sm transition-all hover:bg-white/20"
+            >
+              <svg
+                className="h-8 w-8"
+                fill="none"
+                stroke="currentColor"
+                viewBox="0 0 24 24"
+              >
+                <path
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                  strokeWidth={2}
+                  d="M9 5l7 7-7 7"
+                />
+              </svg>
+            </button>
+          </>
         )}
 
-        {/* Image counter */}
-        <div className="mt-3 text-center text-sm text-white/50">
-          {currentIndex + 1} / {project.images.length}
-        </div>
+        {/* Close button - top right corner */}
+        <button
+          onClick={onClose}
+          className="absolute right-4 top-4 z-10 rounded-full bg-white/10 p-3 text-white backdrop-blur-sm transition-all hover:bg-white/20"
+        >
+          <svg
+            className="h-6 w-6"
+            fill="none"
+            stroke="currentColor"
+            viewBox="0 0 24 24"
+          >
+            <path
+              strokeLinecap="round"
+              strokeLinejoin="round"
+              strokeWidth={2}
+              d="M6 18L18 6M6 6l12 12"
+            />
+          </svg>
+        </button>
       </motion.div>
     </motion.div>
   );
@@ -349,10 +312,10 @@ export default function Projects() {
                     src={project.images[0]}
                     alt={`${project.title} preview`}
                     fill
-                    className="object-cover transition-transform duration-500 group-hover:scale-105"
+                    className="object-cover"
                     sizes="(max-width: 768px) 100vw, 50vw"
                   />
-                  <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent opacity-0 transition-opacity group-hover:opacity-100" />
+                  <div className="absolute inset-0 bg-gradient-to-t from-black/30 to-transparent opacity-0 transition-opacity group-hover:opacity-50" />
                   
                   {/* Image count badge */}
                   <div className="absolute bottom-3 right-3 flex items-center gap-1.5 rounded-full bg-black/60 px-3 py-1.5 text-xs text-white/80 backdrop-blur-sm">
@@ -375,7 +338,7 @@ export default function Projects() {
 
                 {/* Gradient overlay */}
                 <div
-                  className={`absolute inset-0 bg-gradient-to-br ${project.gradient} opacity-0 transition-opacity duration-500 group-hover:opacity-100`}
+                  className={`absolute inset-0 bg-gradient-to-br ${project.gradient} opacity-0 transition-opacity duration-500 group-hover:opacity-30`}
                 />
 
                 {/* Content */}

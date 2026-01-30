@@ -76,13 +76,13 @@ export default function Overlay({ className = "" }: OverlayProps) {
           transition={{ delay: 2 }}
           className="absolute bottom-12 flex flex-col items-center gap-2"
         >
-          <span className="text-xs uppercase tracking-[0.3em] text-white/40">
+          <span className="text-xs uppercase tracking-[0.3em] text-black">
             Scroll
           </span>
           <motion.div
             animate={{ y: [0, 8, 0] }}
             transition={{ repeat: Infinity, duration: 1.5 }}
-            className="h-6 w-[1px] bg-gradient-to-b from-white/40 to-transparent"
+            className="h-6 w-[1px] bg-gradient-to-b from-black to-transparent"
           />
         </motion.div>
       </motion.div>
