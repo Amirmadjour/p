@@ -22,7 +22,7 @@ const projects: Project[] = [
     category: "Web Platform",
     description:
       "A comprehensive B2C and C2C marketplace with integrated secure payment system. Built for the web to provide seamless buying and selling experiences with robust transaction security.",
-    tags: ["Next.js", "React", "TypeScript", "Stripe"],
+    tags: ["Next.js", "React", "TypeScript", "Noon Payments"],
     gradient: "from-orange-500/20 to-red-500/20",
     folder: "Rabit",
     images: [
@@ -44,7 +44,7 @@ const projects: Project[] = [
     category: "Mobile App",
     description:
       "A pure Expo React Native application powering a B2C and C2C marketplace with a secure payment system. Features seamless mobile-first user experience for buying, selling, and secure transactions.",
-    tags: ["Expo", "React Native", "TypeScript", "Payment Gateway"],
+    tags: ["Expo", "React Native", "TypeScript", "Noon Payments"],
     gradient: "from-teal-500/20 to-cyan-500/20",
     folder: "Rabitpay",
     images: [
