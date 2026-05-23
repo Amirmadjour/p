@@ -5,8 +5,8 @@ import { motion, AnimatePresence } from "framer-motion";
 
 export default function Footer() {
   const [copied, setCopied] = useState(false);
-  const phoneNumber = "+34605637460";
-  const formattedPhone = "+34 605 637 460";
+  const phoneNumber = "+33605637460";
+  const formattedPhone = "+33 6 05 63 74 60";
 
   const handleCopyPhone = async () => {
     try {
