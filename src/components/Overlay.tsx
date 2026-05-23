@@ -59,7 +59,7 @@ export default function Overlay({ className = "" }: OverlayProps) {
             <span className="text-gradient">Amir Madjour</span>
           </h1>
           <p className="text-xl font-light tracking-wide text-white/60 md:text-2xl lg:text-3xl">
-            Creative Developer
+            Full Stack Developer
           </p>
           <motion.div
             initial={{ width: 0 }}
